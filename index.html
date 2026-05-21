@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rently Homes</title>
+  <title>Rently Homes LLC</title>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -14,145 +15,381 @@
     }
 
     body{
-      background:#0b1220;
+      background:#030914;
       color:white;
+      overflow-x:hidden;
+    }
+
+    header{
+      height:120px;
+      background:#020817;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 60px;
+      border-bottom:1px solid #1d2a44;
+      position:fixed;
+      width:100%;
+      z-index:999;
+    }
+
+    .logo img{
+      height:95px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:40px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-size:17px;
+      transition:.3s;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:#d9a441;
+    }
+
+    .active{
+      color:#d9a441;
+    }
+
+    .book-btn{
+      background:linear-gradient(135deg,#c58a2d,#efc467);
+      padding:18px 35px;
+      border-radius:40px;
+      color:white;
+      font-weight:bold;
     }
 
     .hero{
       height:100vh;
-      background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-      url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1600&auto=format&fit=crop') center/cover;
+      background:
+      linear-gradient(90deg,rgba(0,0,0,.80),rgba(0,0,0,.35)),
+      url("images/hero.jpeg");
+      background-size:cover;
+      background-position:center;
       display:flex;
       align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
+      padding:0 80px;
     }
 
     .hero-content{
-      max-width:900px;
+      max-width:850px;
+      margin-top:80px;
     }
 
-    h1{
-      font-size:70px;
-      margin-bottom:20px;
-      color:#f5d27a;
+    .hero h1{
+      font-size:78px;
+      line-height:1;
+      font-family:Georgia, serif;
+      font-weight:400;
+      letter-spacing:2px;
     }
 
-    p{
-      font-size:22px;
-      line-height:1.6;
-      margin-bottom:35px;
+    .hero .gold{
+      display:block;
+      color:#d9a441;
+      font-size:95px;
+      font-family:cursive;
+      margin-top:-10px;
     }
 
-    .btn{
+    .hero p{
+      margin-top:35px;
+      font-size:28px;
+      line-height:1.5;
+      max-width:700px;
+      color:#f0f0f0;
+    }
+
+    .main-btn{
       display:inline-block;
-      padding:18px 35px;
-      background:#f5d27a;
-      color:#000;
-      text-decoration:none;
+      margin-top:45px;
+      background:linear-gradient(135deg,#c58a2d,#efc467);
+      padding:22px 48px;
       border-radius:50px;
+      text-decoration:none;
+      color:white;
       font-weight:bold;
+      font-size:20px;
       transition:.3s;
     }
 
-    .btn:hover{
-      background:white;
+    .main-btn:hover{
+      transform:scale(1.05);
     }
 
-    .section{
-      padding:100px 20px;
-      max-width:1200px;
-      margin:auto;
+    .features{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      background:#030914;
+      border-top:1px solid #1d2a44;
+    }
+
+    .feature{
+      text-align:center;
+      padding:35px 20px;
+      color:#d9a441;
+      border-right:1px solid #1d2a44;
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .services{
+      padding:110px 60px;
+      background:#07111f;
+      text-align:center;
+    }
+
+    .services h2{
+      font-size:55px;
+      margin-bottom:60px;
+      color:#efc467;
     }
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      margin-top:50px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+      max-width:1300px;
+      margin:auto;
     }
 
     .card{
-      background:#121c2f;
-      padding:35px;
-      border-radius:20px;
+      background:#101a2d;
+      padding:40px;
+      border-radius:24px;
+      border:1px solid #23314e;
+      text-align:left;
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#d9a441;
     }
 
     .card h3{
-      color:#f5d27a;
-      margin-bottom:15px;
+      color:#efc467;
+      margin-bottom:18px;
+      font-size:28px;
+    }
+
+    .card p{
+      color:#d8d8d8;
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .gallery{
+      padding:110px 60px;
+      background:#030914;
+      text-align:center;
+    }
+
+    .gallery h2{
+      font-size:55px;
+      color:#efc467;
+      margin-bottom:60px;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:24px;
+      transition:.4s;
+    }
+
+    .gallery-grid img:hover{
+      transform:scale(1.03);
     }
 
     footer{
-      padding:40px;
+      background:#020817;
+      padding:45px;
       text-align:center;
-      background:#060b14;
-      color:#aaa;
+      color:#999;
+      border-top:1px solid #1d2a44;
     }
 
-    @media(max-width:768px){
-      h1{
-        font-size:45px;
+    @media(max-width:1000px){
+
+      header{
+        flex-direction:column;
+        height:auto;
+        padding:25px;
+        gap:20px;
       }
 
-      p{
-        font-size:18px;
+      nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:20px;
       }
+
+      .hero{
+        padding:40px 25px;
+        height:auto;
+        min-height:100vh;
+      }
+
+      .hero h1{
+        font-size:50px;
+      }
+
+      .hero .gold{
+        font-size:65px;
+      }
+
+      .hero p{
+        font-size:20px;
+      }
+
+      .features{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .logo img{
+        height:75px;
+      }
+
     }
+
   </style>
+
 </head>
 
 <body>
 
+<header>
+
+  <div class="logo">
+    <img src="images/logo.jpeg" alt="Rently Homes Logo">
+  </div>
+
+  <nav>
+    <a class="active" href="#">HOME</a>
+    <a href="#services">PROPERTIES</a>
+    <a href="#gallery">DESTINATIONS</a>
+    <a href="#services">ABOUT US</a>
+    <a href="https://wa.me/16892844550">CONTACT</a>
+    <a class="book-btn" href="https://wa.me/16892844550">BOOK NOW</a>
+  </nav>
+
+</header>
+
 <section class="hero">
+
   <div class="hero-content">
-    <h1>Rently Homes</h1>
+
+    <h1>
+      HOMES THAT CREATE
+      <span class="gold">memories</span>
+    </h1>
 
     <p>
-      Luxury Vacation Rental Management Near Disney.
-      We help property owners maximize income,
-      improve guest experience, and enjoy hands-free ownership.
+      Unforgettable stays in the best destinations.
+      Premium vacation rental management in Orlando,
+      Kissimmee, and the Disney area.
     </p>
 
-    <a class="btn" href="https://wa.me/16892844550">
-      Contact Us
+    <a class="main-btn" href="https://wa.me/16892844550">
+      BOOK NOW
     </a>
+
   </div>
+
 </section>
 
-<section class="section">
-  <h1 style="font-size:50px;text-align:center;">
-    Our Services
-  </h1>
+<section class="features">
+
+  <div class="feature">🌴 BEACHES</div>
+  <div class="feature">🎡 THEME PARKS</div>
+  <div class="feature">⛰️ MOUNTAINS</div>
+  <div class="feature">🛥️ BOATS</div>
+  <div class="feature">✈️ TRAVEL</div>
+  <div class="feature">📸 MEMORIES</div>
+
+</section>
+
+<section class="services" id="services">
+
+  <h2>Premium Services</h2>
 
   <div class="cards">
 
     <div class="card">
-      <h3>Airbnb Management</h3>
-      <p>Complete Airbnb and VRBO management with premium guest communication.</p>
+      <h3>Property Management</h3>
+      <p>
+        Complete vacation rental management for property owners who want
+        stress-free income and premium guest experiences.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Airbnb & VRBO</h3>
+      <p>
+        Full management of bookings, guest communication,
+        check-in, check-out, and five-star hospitality.
+      </p>
     </div>
 
     <div class="card">
       <h3>Revenue Optimization</h3>
-      <p>Dynamic pricing strategies to maximize occupancy and nightly rates.</p>
-    </div>
-
-    <div class="card">
-      <h3>Cleaning Coordination</h3>
-      <p>Professional cleaning management to maintain five-star reviews.</p>
+      <p>
+        Dynamic pricing strategies designed to maximize occupancy,
+        increase nightly rates, and improve profitability.
+      </p>
     </div>
 
     <div class="card">
       <h3>Luxury Branding</h3>
-      <p>Premium listing presentation designed to stand out in Orlando.</p>
+      <p>
+        Premium branding, photography, staging, and presentation
+        to position your property above competitors.
+      </p>
     </div>
 
   </div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+  <h2>Featured Properties</h2>
+
+  <div class="gallery-grid">
+
+    <img src="images/pool1.jpg" alt="">
+    <img src="images/pool2.jpg" alt="">
+    <img src="images/house1.jpg" alt="">
+    <img src="images/bedroom1.jpg" alt="">
+    <img src="images/kitchen1.jpg" alt="">
+    <img src="images/event1.jpg" alt="">
+
+  </div>
+
 </section>
 
 <footer>
-  © 2026 Rently Homes · Orlando · Kissimmee · Disney Area
+
+  © 2026 Rently Homes LLC · Orlando · Kissimmee · Disney Area
+
 </footer>
 
 </body>
