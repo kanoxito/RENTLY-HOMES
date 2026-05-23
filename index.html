@@ -325,6 +325,57 @@
     z-index:9999;
     box-shadow:0 10px 25px rgba(0,0,0,.35);
 }
+    .reviews-slider{
+padding:80px 20px;
+background:#0f172a;
+overflow:hidden;
+text-align:center;
+}
+
+.reviews-slider h2{
+font-size:42px;
+margin-bottom:40px;
+color:#d4af37;
+}
+
+.slider{
+overflow:hidden;
+position:relative;
+width:100%;
+}
+
+.slide-track{
+display:flex;
+gap:25px;
+width:calc(350px * 12);
+animation:scroll 35s linear infinite;
+}
+
+.review-card{
+background:#111827;
+padding:30px;
+border-radius:25px;
+min-width:320px;
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+font-size:18px;
+line-height:1.7;
+}
+
+.review-card strong{
+display:block;
+margin-top:20px;
+color:#d4af37;
+}
+
+@keyframes scroll{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
   </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -478,7 +529,54 @@
         <source src="Videos/Event2.mp4" type="Video/mp4">
     </video>
 </div>
+<section class="reviews-slider" id="reviews">
 
+<h2>Guest Reviews</h2>
+
+<div class="slider">
+
+<div class="slide-track">
+
+<div class="review-card">
+★★★★★
+<p>"Easy access, very clean and organized home in a peaceful area."</p>
+<strong>— Yomaris</strong>
+</div>
+
+<div class="review-card">
+★★★★★
+<p>"Amazing experience and excellent communication."</p>
+<strong>— Xilena</strong>
+</div>
+
+<div class="review-card">
+★★★★★
+<p>"Exactly like the photos. Eduardo was extremely helpful."</p>
+<strong>— Sharona</strong>
+</div>
+
+<div class="review-card">
+★★★★★
+<p>"Perfect family vacation. Pool and home were spotless."</p>
+<strong>— Kadwina</strong>
+</div>
+
+<div class="review-card">
+★★★★★
+<p>"Definitely booking again. Everything was clean and organized."</p>
+<strong>— Veronica</strong>
+</div>
+
+<div class="review-card">
+★★★★★
+<p>"Excellent stay for our family. Cozy and beautiful."</p>
+<strong>— Kiearra</strong>
+</div>
+
+</div>
+</div>
+
+</section>
 </section>
 <section class="gallery" id="gallery">
 
