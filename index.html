@@ -484,11 +484,22 @@ flex-direction:column;
 gap:15px;
 }
 
+.menu-toggle{
+display:block;
+}
+
 nav{
+display:none;
+flex-direction:column;
+width:100%;
+background:#020817;
+padding:12px;
+border-radius:20px;
+gap:4px;
+}
+
+nav.active{
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:12px;
 }
 
 nav a{
@@ -496,13 +507,13 @@ font-size:13px;
 }
 
 .logo img{
-height:65px;
+height:52px;
 }
 
 .hero{
 min-height:75vh;
 height:auto;
-padding:140px 20px 70px;
+padding:110px 20px 70px;
 text-align:center;
 }
 
