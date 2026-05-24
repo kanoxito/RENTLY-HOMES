@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rently Homes LLC</title>
+<meta name="description" content="Luxury vacation rentals and Airbnb property management in Orlando, Kissimmee and near Disney. Rently Homes specializes in premium stays and maximizing property income.">
 
+<meta name="keywords" content="Orlando vacation rentals, Disney vacation homes, Airbnb management Orlando, Kissimmee property management, luxury rentals Florida, VRBO management">
+
+<meta name="author" content="Rently Homes LLC">
   <style>
 
     *{
@@ -376,6 +380,59 @@ transform:translateX(0);
 100%{
 transform:translateX(-50%);
 }
+@media(max-width:768px){
+
+header{
+padding:15px;
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+}
+
+nav a{
+font-size:13px;
+}
+
+.logo img{
+height:65px;
+}
+
+.hero{
+height:85vh;
+padding:0 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.hero .gold{
+font-size:58px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.main-btn,
+.book-btn{
+padding:14px 24px;
+font-size:14px;
+}
+
+.whatsapp-float,
+.instagram-float,
+.facebook-float,
+.tiktok-float{
+right:12px;
+font-size:24px;
 }
   </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -392,7 +449,7 @@ transform:translateX(-50%);
   <nav>
     <a class="active" href="#">HOME</a>
     <a href="#services">ABOUT US</a>
-    <a href="#lead-form">FREE ANALYSIS</a>
+    <a href="#lead-form" class="book-btn">FREE PROPERTY ANALYSIS</a>
     <a href="#trust">TRUST</a>
     <a href="https://wa.me/16892844550" class="whatsapp-float" target="_blank">
   <i class="fab fa-whatsapp" style="font-size:38px;"></i>
@@ -431,9 +488,7 @@ Homes that create
 Luxury vacation rentals near Disney, Orlando & Kissimmee.
 </p>
 
-<a href="#lead-form" class="main-btn">
-BOOK YOUR EXPERIENCE
-</a>
+<a href="#lead-form" class="main-btn">GET FREE PROPERTY ANALYSIS</a>
 </div>
 
 </section>
