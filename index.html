@@ -65,6 +65,12 @@ transition:.3s ease;
 nav a:hover{
 color:#f5c542;
 }
+ .menu-toggle{
+display:none;
+font-size:32px;
+color:#f5c542;
+cursor:pointer;
+}
     .logo img{
       height:90px;
     }
@@ -270,7 +276,22 @@ letter-spacing:1px;
         padding:15px 20px;
         gap:18px;
       }
+.menu-toggle{
+display:block;
+}
 
+nav{
+display:none;
+flex-direction:column;
+width:100%;
+background:#020817;
+padding:20px;
+border-radius:20px;
+}
+
+nav.active{
+display:flex;
+}
       nav{
         flex-wrap:wrap;
         justify-content:center;
@@ -527,7 +548,7 @@ gap:20px;
   <div class="logo">
     <img src="images/logo.jpeg" alt="Rently Homes Logo">
   </div>
-
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <nav>
     <a class="active" href="#">HOME</a>
     <a href="#about">ABOUT US</a>
@@ -907,5 +928,10 @@ Orlando, FL
   </form>
 </div>
 </section>
+  <script>
+function toggleMenu() {
+document.querySelector("nav").classList.toggle("active");
+}
+</script>
 </body>
 </html>
