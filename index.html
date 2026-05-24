@@ -357,7 +357,9 @@ word-wrap:break-word;
 .facebook-float,
 .tiktok-float{
 right:8px;
-transform:scale(.75);
+transform:scale(.55);
+z-index:9999;
+bottom:90px;
 }
       .main-btn,
 .book-btn{
@@ -367,13 +369,27 @@ border-radius:40px;
 }
 
       .features{
-        grid-template-columns:repeat(2,1fr);
-      }
+grid-template-columns:1fr;
+}
 
       .logo img{
         height:75px;
       }
+.hero-content{
+padding:30px 20px;
+width:90%;
+margin:auto;
+}
 
+.hero h1{
+font-size:38px;
+line-height:1.1;
+}
+
+.hero .gold{
+font-size:42px;
+line-height:1.1;
+}
     }
 .whatsapp-float{
   position:fixed;
