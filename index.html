@@ -343,25 +343,54 @@ grid-template-columns:1fr;
       .logo img{
         height:64px;
       }
-}.hero{
-    display:block !important;
+@media(max-width:768px){
+  .hero{
+    min-height:85vh !important;
     width:100% !important;
-    padding:90px 0 50px !important;
+    max-width:100% !important;
+    padding:120px 20px 60px !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    text-align:center !important;
+    background-position:center !important;
+    background-size:cover !important;
+    box-sizing:border-box !important;
     overflow:hidden !important;
-}
-      
-.hero h1{
-font-size:24px;
-line-height:1.05;
-text-align:center;
-}
+  }
 
-.hero .gold{
-font-size:26px;
-line-height:1.05;
-display:block;
-text-align:center;
-}
+  .hero-content{
+    width:100% !important;
+    max-width:340px !important;
+    margin:0 auto !important;
+    padding:24px 18px !important;
+    background:rgba(0,0,0,.55) !important;
+    border-radius:24px !important;
+    box-sizing:border-box !important;
+    transform:none !important;
+  }
+
+  .hero h1{
+    font-size:24px !important;
+    line-height:1.05 !important;
+  }
+
+  .hero .gold{
+    font-size:28px !important;
+    line-height:1.05 !important;
+  }
+
+  .hero p{
+    font-size:15px !important;
+    line-height:1.4 !important;
+  }
+
+  .main-btn{
+    max-width:100% !important;
+    font-size:12px !important;
+    padding:12px 18px !important;
+  }
+
     }
 .whatsapp-float{
   position:fixed;
