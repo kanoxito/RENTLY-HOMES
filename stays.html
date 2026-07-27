@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,6 +15,12 @@
       line-height: 1.6;
     }
 
+    /* Language */
+    .lang-es { display: block; }
+    .lang-en { display: none; }
+    body.en .lang-es { display: none; }
+    body.en .lang-en { display: block; }
+
     /* Header */
     header {
       height: 90px;
@@ -23,16 +29,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 50px;
+      padding: 0 40px;
       position: fixed;
       width: 100%;
       z-index: 1000;
       border-bottom: 1px solid #1d2a44;
     }
     .logo img { height: 70px; }
+    .header-right {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
     nav {
       display: flex;
-      gap: 30px;
+      gap: 25px;
       align-items: center;
     }
     nav a {
@@ -43,10 +54,19 @@
       transition: 0.3s;
     }
     nav a:hover { color: #f5c542; }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid #f5c542;
+      color: #f5c542;
+      padding: 8px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+    }
     .btn-primary {
       background: linear-gradient(135deg, #c58a2d, #efc467);
       color: white;
-      padding: 12px 26px;
+      padding: 12px 24px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
@@ -55,7 +75,7 @@
 
     /* Hero */
     .hero {
-      padding: 160px 8% 100px;
+      padding: 160px 8% 90px;
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero.jpg');
       background-size: cover;
       background-position: center;
@@ -63,7 +83,7 @@
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.4rem;
+      font-size: 3.2rem;
       margin-bottom: 20px;
     }
     .hero p {
@@ -95,13 +115,13 @@
       min-height: 420px;
     }
     .property-info {
-      padding: 50px 40px;
+      padding: 45px 40px;
     }
     .property-info h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 1.9rem;
       color: #f5c542;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
     .property-info ul {
       list-style: none;
@@ -131,7 +151,7 @@
     .features h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       color: #f5c542;
       margin-bottom: 50px;
     }
@@ -144,7 +164,7 @@
     }
     .feature-card {
       background: #101a2d;
-      border: 1px solid #23314e;
+     border: 1px solid #23314e;
       border-radius: 18px;
       padding: 35px 30px;
       text-align: center;
@@ -152,14 +172,14 @@
     .feature-card h3 {
       color: #f5c542;
       margin-bottom: 12px;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
     }
     .feature-card p {
       color: #d1d5db;
       font-size: 1rem;
     }
 
-    /* CTA */
+    /* CTA + Booking */
     .cta {
       padding: 90px 8%;
       background: #0b1220;
@@ -167,7 +187,7 @@
     }
     .cta h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       color: #f5c542;
       margin-bottom: 20px;
     }
@@ -190,7 +210,7 @@
     @media (max-width: 900px) {
       header { padding: 0 20px; }
       nav { display: none; }
-      .hero h1 { font-size: 2.4rem; }
+      .hero h1 { font-size: 2.3rem; }
       .property-card { grid-template-columns: 1fr; }
       .property-card img { min-height: 280px; }
     }
@@ -203,20 +223,36 @@
     <div class="logo">
       <a href="index.html"><img src="images/logo.jpeg" alt="Rently Homes"></a>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stays.html">Our Homes</a>
-      <a href="#amenities">Amenities</a>
-      <a href="#celebrations">Celebrations</a>
-      <a href="index.html#booking" class="btn-primary">Check Availability</a>
-    </nav>
+    <div class="header-right">
+      <nav>
+        <a href="index.html">
+          <span class="lang-es">Inicio</span>
+          <span class="lang-en">Home</span>
+        </a>
+        <a href="stays.html">
+          <span class="lang-es">Nuestras Casas</span>
+          <span class="lang-en">Our Homes</span>
+        </a>
+        <a href="property-management.html">Property Management</a>
+      </nav>
+      <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
+      <a href="#booking" class="btn-primary">
+        <span class="lang-es">Reservar</span>
+        <span class="lang-en">Book Now</span>
+      </a>
+    </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <h1>Your Orlando Vacation Starts Here</h1>
-    <p>Spacious vacation homes designed for families, groups and unforgettable stays near Orlando’s most popular attractions.</p>
-    <a href="#booking" class="btn-primary" style="padding: 16px 38px; font-size: 17px;">Check Availability</a>
+    <h1 class="lang-es">Tu Vacación en Orlando Empieza Aquí</h1>
+    <h1 class="lang-en">Your Orlando Vacation Starts Here</h1>
+    <p class="lang-es">Casas vacacionales espaciosas diseñadas para familias, grupos y estancias inolvidables cerca de las atracciones más populares de Orlando.</p>
+    <p class="lang-en">Spacious vacation homes designed for families, groups and unforgettable stays near Orlando’s most popular attractions.</p>
+    <a href="#booking" class="btn-primary" style="padding: 16px 38px; font-size: 17px;">
+      <span class="lang-es">Ver Disponibilidad</span>
+      <span class="lang-en">Check Availability</span>
+    </a>
   </section>
 
   <!-- Featured Property -->
@@ -224,80 +260,87 @@
     <div class="property-card">
       <img src="images/pool-view.jpg" alt="Private Pool Family Retreat">
       <div class="property-info">
-        <h2>Private Pool Family Retreat — Kissimmee</h2>
+        <h2 class="lang-es">Retiro Familiar con Piscina Privada — Kissimmee</h2>
+        <h2 class="lang-en">Private Pool Family Retreat — Kissimmee</h2>
         <ul>
-          <li>4 bedrooms</li>
-          <li>3 bathrooms</li>
-          <li>Sleeps up to 10 guests</li>
-          <li>Private pool</li>
-          <li>Full kitchen</li>
-          <li>Free parking</li>
-          <li>Optional pool heating</li>
-          <li>Near Walt Disney World</li>
+          <li class="lang-es">4 habitaciones</li>
+          <li class="lang-en">4 bedrooms</li>
+          <li class="lang-es">3 baños</li>
+          <li class="lang-en">3 bathrooms</li>
+          <li class="lang-es">Hasta 10 huéspedes</li>
+          <li class="lang-en">Sleeps up to 10 guests</li>
+          <li class="lang-es">Piscina privada</li>
+          <li class="lang-en">Private pool</li>
+          <li class="lang-es">Cocina completa</li>
+          <li class="lang-en">Full kitchen</li>
+          <li class="lang-es">Estacionamiento gratuito</li>
+          <li class="lang-en">Free parking</li>
+          <li class="lang-es">Calefacción de piscina opcional</li>
+          <li class="lang-en">Optional pool heating</li>
+          <li class="lang-es">Cerca de Walt Disney World</li>
+          <li class="lang-en">Near Walt Disney World</li>
         </ul>
         <div class="property-buttons">
-          <a href="#booking" class="btn-primary">Check Availability</a>
-          <a href="#booking" class="btn-primary" style="background: transparent; border: 2px solid #f5c542; color: #f5c542;">View Details</a>
+          <a href="#booking" class="btn-primary">
+            <span class="lang-es">Ver Disponibilidad</span>
+            <span class="lang-en">Check Availability</span>
+          </a>
         </div>
       </div>
-    </div>
+      </div>
   </section>
 
-  <!-- Amenities / Features -->
+  <!-- Amenities -->
   <section class="features" id="amenities">
-    <h2>Everything You Need for a Perfect Stay</h2>
+    <h2 class="lang-es">Todo lo que Necesitas para una Estancia Perfecta</h2>
+    <h2 class="lang-en">Everything You Need for a Perfect Stay</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <h3>Private Pool</h3>
-        <p>Enjoy your own private pool. Optional heating available for cooler months.</p>
+        <h3 class="lang-es">Piscina Privada</h3>
+        <h3 class="lang-en">Private Pool</h3>
+        <p class="lang-es">Disfruta de tu propia piscina privada. Calefacción opcional disponible.</p>
+        <p class="lang-en">Enjoy your own private pool. Optional heating available for cooler months.</p>
       </div>
       <div class="feature-card">
-        <h3>Spacious Layout</h3>
-        <p>Multiple bedrooms and living areas designed for families and groups.</p>
+        <h3 class="lang-es">Espacios Amplios</h3>
+        <h3 class="lang-en">Spacious Layout</h3>
+        <p class="lang-es">Múltiples habitaciones y áreas sociales diseñadas para familias y grupos.</p>
+        <p class="lang-en">Multiple bedrooms and living areas designed for families and groups.</p>
       </div>
       <div class="feature-card">
-        <h3>Full Kitchen</h3>
-        <p>Fully equipped kitchen so you can cook meals and save during your stay.</p>
+        <h3 class="lang-es">Cocina Completa</h3>
+        <h3 class="lang-en">Full Kitchen</h3>
+        <p class="lang-es">Cocina totalmente equipada para preparar comidas durante tu estadía.</p>
+        <p class="lang-en">Fully equipped kitchen so you can cook meals and save during your stay.</p>
       </div>
       <div class="feature-card">
-        <h3>Prime Location</h3>
-        <p>Minutes from Walt Disney World and major Orlando attractions.</p>
+        <h3 class="lang-es">Ubicación Privilegiada</h3>
+        <h3 class="lang-en">Prime Location</h3>
+        <p class="lang-es">A minutos de Walt Disney World y las principales atracciones de Orlando.</p>
+        <p class="lang-en">Minutes from Walt Disney World and major Orlando attractions.</p>
       </div>
       <div class="feature-card">
-        <h3>Smart Entertainment</h3>
-        <p>Smart TVs, high-speed WiFi and comfortable living spaces.</p>
+        <h3 class="lang-es">Entretenimiento</h3>
+        <h3 class="lang-en">Smart Entertainment</h3>
+        <p class="lang-es">Smart TVs, WiFi de alta velocidad y espacios cómodos.</p>
+        <p class="lang-en">Smart TVs, high-speed WiFi and comfortable living spaces.</p>
       </div>
       <div class="feature-card">
-        <h3>Celebrations Welcome</h3>
-        <p>Ideal for small family gatherings, birthdays and special moments.</p>
+        <h3 class="lang-es">Ideal para Celebraciones</h3>
+        <h3 class="lang-en">Celebrations Welcome</h3>
+        <p class="lang-es">Perfecto para reuniones familiares, cumpleaños y momentos especiales.</p>
+        <p class="lang-en">Ideal for small family gatherings, birthdays and special moments.</p>
       </div>
     </div>
   </section>
 
-  <!-- Celebrations -->
-  <section class="features" id="celebrations" style="background: #0b1220;">
-    <h2>Perfect for Celebrations</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Family Gatherings</h3>
-        <p>Spacious homes with outdoor areas perfect for family time.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Birthdays & Events</h3>
-        <p>Celebrate special moments in a private and comfortable setting.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Group Getaways</h3>
-        <p>Ideal for friends and extended family looking for a memorable stay.</p>
-      </div>
-    </div>
-  </section>
-  <!-- Booking CTA -->
+  <!-- Booking -->
   <section class="cta" id="booking">
-    <h2>Ready to Book Your Stay?</h2>
-    <p>Select your dates and reserve directly for the best available rate.</p>
+    <h2 class="lang-es">¿Listo para Reservar tu Estancia?</h2>
+    <h2 class="lang-en">Ready to Book Your Stay?</h2>
+    <p class="lang-es">Selecciona tus fechas y reserva directamente para obtener la mejor tarifa disponible.</p>
+    <p class="lang-en">Select your dates and reserve directly for the best available rate.</p>
     
-    <!-- Lodgify Widget -->
     <div style="max-width: 800px; margin: 40px auto; background: #101a2d; padding: 40px; border-radius: 20px; border: 1px solid #23314e;">
       <style>
         :root {
@@ -325,16 +368,12 @@
         data-rental-id="827496"
         data-website-id="667233"
         data-slug="rently-homes"
-        data-language-code="en"
+        data-language-code="es"
         data-new-tab="true"
         data-version="stable"
         data-currency-code="USD"
         data-has-guests-breakdown
-        data-check-in-label="Check-in"
-        data-check-out-label="Check-out"
-        data-guests-label="Guests"
-        data-book-button-label="Book Now"
-      ></div>
+        ></div>
 
       <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
     </div>
@@ -343,8 +382,16 @@
   <!-- Footer -->
   <footer>
     <p>© 2026 Rently Homes LLC • Orlando, Florida</p>
-    <p style="margin-top: 8px;">Luxury Vacation Homes near Disney</p>
+    <p style="margin-top: 8px;">
+      <span class="lang-es">Casas Vacacionales de Lujo cerca de Disney</span>
+      <span class="lang-en">Luxury Vacation Homes near Disney</span>
+    </p>
   </footer>
 
+  <script>
+    function toggleLanguage() {
+      document.body.classList.toggle('en');
+    }
+  </script>
 </body>
 </html>
