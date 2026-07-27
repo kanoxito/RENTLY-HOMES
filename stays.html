@@ -342,42 +342,52 @@
     <p class="lang-es">Selecciona tus fechas y reserva directamente para obtener la mejor tarifa disponible.</p>
     <p class="lang-en">Select your dates and reserve directly for the best available rate.</p>
     
-    <div style="max-width: 800px; margin: 40px auto; background: #101a2d; padding: 40px; border-radius: 20px; border: 1px solid #23314e;">
-      <style>
-        :root {
-          --ldg-bnb-background: #ffffff;
-          --ldg-bnb-border-radius: 0.42em;
-          --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
-          --ldg-bnb-padding: 14px;
-          --ldg-bnb-input-background: #ffffff;
-          --ldg-bnb-button-border-radius: 3.58em;
-          --ldg-bnb-color-primary: #f5c542;
-          --ldg-bnb-color-primary-lighter: #fae2a1;
-          --ldg-bnb-color-primary-darker: #7b6321;
-          --ldg-bnb-color-primary-contrast: #333333;
-          --ldg-component-calendar-cell-selection-bg-color: #f5c542;
-          --ldg-component-calendar-cell-selection-color: #333333;
-          --ldg-component-calendar-cell-selected-bg-color: #fae2a1;
-          --ldg-component-calendar-cell-selected-color: #333333;
-          --ldg-bnb-font-family: inherit;
-        }
-        #lodgify-book-now-box { width: 100%; }
-      </style>
+  <div style="max-width: 800px; margin: 40px auto; background: #101a2d; padding: 40px; border-radius: 20px; border: 1px solid #23314e;">
+  <style>
+    :root {
+      --ldg-bnb-background: #ffffff;
+      --ldg-bnb-border-radius: 0.5em;
+      --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+      --ldg-bnb-padding: 16px;
+      --ldg-bnb-input-background: #ffffff;
+      --ldg-bnb-button-border-radius: 50px;
+      --ldg-bnb-color-primary: #f5c542;
+      --ldg-bnb-color-primary-lighter: #fae2a1;
+      --ldg-bnb-color-primary-darker: #7b6321;
+      --ldg-bnb-color-primary-contrast: #333333;
+      --ldg-component-calendar-cell-selection-bg-color: #f5c542;
+      --ldg-component-calendar-cell-selection-color: #333333;
+      --ldg-component-calendar-cell-selected-bg-color: #fae2a1;
+      --ldg-component-calendar-cell-selected-color: #333333;
+      --ldg-bnb-font-family: inherit;
+    }
+    #lodgify-book-now-box { 
+      width: 100%; 
+    }
+  </style>
 
-      <div
-        id="lodgify-book-now-box"
-        data-rental-id="827496"
-        data-website-id="667233"
-        data-slug="rently-homes"
-        data-language-code="es"
-        data-new-tab="true"
-        data-version="stable"
-        data-currency-code="USD"
-        data-has-guests-breakdown
-        ></div>
+  <div
+    id="lodgify-book-now-box"
+    data-rental-id="827496"
+    data-website-id="667233"
+    data-slug="rently-homes"
+    data-language-code="es"
+    data-new-tab="true"
+    data-version="stable"
+    data-currency-code="USD"
+    data-has-guests-breakdown
+    data-check-in-label="Llegada"
+    data-check-out-label="Salida"
+    data-guests-label="Huéspedes"
+    data-book-button-label="Reservar Ahora"
+    data-total-price-label="Precio total:"
+    data-select-dates-to-see-price-label="Seleccione las fechas para ver el precio total"
+    data-minimum-price-per-night-first-label="Desde"
+    data-minimum-price-per-night-second-label="por noche"
+  ></div>
 
-      <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
-    </div>
+  <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
+</div>
   </section>
 
   <!-- Footer -->
