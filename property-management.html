@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Property Management | Rently Homes Orlando</title>
+  <meta name="description" content="Professional short-term rental property management in Orlando and Kissimmee. Increase revenue and protect your investment.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #030914;
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      height: 90px;
+      background: rgba(2, 8, 23, 0.95);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid #1d2a44;
+    }
+    .logo img { height: 70px; }
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #f5c542; }
+    .btn-primary {
+      background: linear-gradient(135deg, #c58a2d, #efc467);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .btn-secondary {
+      border: 2px solid #f5c542;
+      color: #f5c542;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 170px 8% 100px;
+      background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('images/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #e5e7eb;
+      max-width: 750px;
+      margin: 0 auto 40px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Value Proposition */
+    .value {
+      padding: 90px 8%;
+      background: #0b1220;
+      text-align: center;
+    }
+    .value h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #f5c542;
+      margin-bottom: 20px;
+    }
+    .value p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #d1d5db;
+      font-size: 1.15rem;
+    }
+
+    /* Services */
+    .services {
+      padding: 90px 8%;
+      background: #030914;
+    }
+    .services h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #f5c542;
+      margin-bottom: 50px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: #101a2d;
+      border: 1px solid #23314e;
+      border-radius: 18px;
+      padding: 30px 25px;
+    }
+    .service-card h3 {
+      color: #f5c542;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+    .service-card p {
+      color: #d1d5db;
+      font-size: 0.98rem;
+    }
+
+    /* How it works */
+    .how {
+      padding: 90px 8%;
+      background: #0b1220;
+    }
+    .how h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #f5c542;
+      margin-bottom: 60px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .step {
+      text-align: center;
+      background: #101a2d;
+      border: 1px solid #23314e;
+      border-radius: 18px;
+      padding: 35px 25px;
+    }
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: #f5c542;
+      color: #030914;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin: 0 auto 20px;
+    }
+    .step h3 {
+      color: #f5c542;
+      margin-bottom: 12px;
+    }
+    .step p {
+      color: #d1d5db;
+      font-size: 0.98rem;
+    }
+
+    /* Form */
+    .form-section {
+      padding: 90px 8%;
+      background: #030914;
+      text-align: center;
+    }
+    .form-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #f5c542;
+      margin-bottom: 15px;
+    }
+    .form-section p {
+      color: #d1d5db;
+      margin-bottom: 40px;
+    }
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #101a2d;
+      padding: 45px;
+      border-radius: 24px;
+      border: 1px solid #23314e;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #f5c542;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: none;
+      background: #0b1220;
+      color: white;
+      font-size: 15px;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 16px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #c58a2d, #efc467);
+      color: white;
+      font-size: 17px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: #020817;
+      padding: 40px;
+      text-align: center;
+      color: #9ca3af;
+      border-top: 1px solid #1d2a44;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hero h1 { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.jpeg" alt="Rently Homes"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stays.html">Stays</a>
+      <a href="property-management.html">Property Management</a>
+      <a href="#form" class="btn-primary">Free Analysis</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Your Property. Professionally Managed.</h1>
+    <p>We help Orlando and Kissimmee vacation-home owners increase revenue, improve guest experiences and protect their investment through hands-on short-term rental management.</p>
+    <div class="hero-buttons">
+      <a href="#form" class="btn-primary" style="padding: 16px 36px; font-size: 17px;">Get a Free Property Analysis</a>
+      <a href="#form" class="btn-secondary" style="padding: 14px 32px; font-size: 17px;">Schedule a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="value">
+    <h2>More Revenue. Less Stress.<br>Better Guest Experiences.</h2>
+    <p>Rently Homes manages the day-to-day operation of your vacation rental, from listing optimization and dynamic pricing to guest communication, cleaning coordination and property oversight.</p>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <h2>What We Handle for You</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Listing Optimization</h3>
+        <p>Professional descriptions, photos coordination and platform setup.</p>
+      </div>
+      <div class="service-card">
+        <h3>Dynamic Pricing</h3>
+        <p>Smart pricing strategy to maximize occupancy and revenue.</p>
+      </div>
+      <div class="service-card">
+        <h3>Multi-Platform Management</h3>
+        <p>Airbnb, VRBO, Booking.com and direct bookings handled for you.</p>
+      </div>
+      <div class="service-card">
+        <h3>Guest Communication</h3>
+        <p>24/7 messaging, screening and support before, during and after the stay.</p>
+      </div>
+      <div class="service-card">
+        <h3>Cleaning & Turnover</h3>
+        <p>Professional cleaning coordination to keep 5-star standards.</p>
+      </div>
+      <div class="service-card">
+        <h3>Maintenance Coordination</h3>
+        <p>We handle issues quickly and keep your property in excellent condition.</p>
+      </div>
+      <div class="service-card">
+        <h3>Review Management</h3>
+        <p>We monitor and respond to reviews to protect your reputation.</p>
+      </div>
+      <div class="service-card">
+        <h3>Monthly Owner Reports</h3>
+        <p>Clear reports on performance, occupancy and revenue.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Property Evaluation</h3>
+        <p>We analyze your property, location, competition and income potential.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Setup & Optimization</h3>
+        <p>Photos, listing, pricing strategy, rules and platform presence.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Launch & Management</h3>
+        <p>We handle bookings, guests, cleanings and day-to-day operations.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Reporting & Growth</h3>
+        <p>You receive reports and recommendations to improve performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="form-section" id="form">
+    <h2>Request Your Free Property Analysis</h2>
+    <p>Tell us about your property and we’ll show you its potential.</p>
+
+    <form action="https://hook.us2.make.com/lmpceg5tmvtee6lvb32js7ngb3t36475" method="POST">
+      <label>Full Name *</label>
+      <input type="text" name="full_name" required>
+
+      <label>Email *</label>
+      <input type="email" name="email" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone">
+
+      <label>Property Address or ZIP Code *</label>
+      <input type="text" name="property_location" required>
+
+      <label>Property Type</label>
+      <select name="property_type">
+        <option value="">Select...</option>
+        <option value="House">House</option>
+        <option value="Villa">Villa</option>
+        <option value="Condo">Condo</option>
+        <option value="Townhouse">Townhouse</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Number of Bedrooms</label>
+      <input type="number" name="bedrooms" min="1">
+
+      <label>Is the property currently listed?</label>
+      <select name="currently_listed">
+        <option value="">Select...</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Current Booking Platforms (if any)</label>
+      <input type="text" name="platforms" placeholder="Airbnb, VRBO, etc.">
+
+      <label>Approximate Monthly Revenue (optional)</label>
+      <input type="text" name="monthly_revenue">
+
+      <label>Primary Management Concern</label>
+      <textarea name="main_concern" placeholder="What would you like us to help you with the most?"></textarea>
+
+      <button type="submit">Request My Free Property Analysis</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Rently Homes LLC • Orlando, Florida</p>
+    <p style="margin-top: 8px;">Professional Short-Term Rental Management</p>
+  </footer>
+
+</body>
+</html>
