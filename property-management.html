@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,6 +15,12 @@
       line-height: 1.6;
     }
 
+    /* Language */
+    .lang-es { display: block; }
+    .lang-en { display: none; }
+    body.en .lang-es { display: none; }
+    body.en .lang-en { display: block; }
+
     /* Header */
     header {
       height: 90px;
@@ -23,16 +29,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 50px;
+      padding: 0 40px;
       position: fixed;
       width: 100%;
       z-index: 1000;
       border-bottom: 1px solid #1d2a44;
     }
     .logo img { height: 70px; }
+    .header-right {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
     nav {
       display: flex;
-      gap: 28px;
+      gap: 25px;
       align-items: center;
     }
     nav a {
@@ -43,10 +54,19 @@
       transition: 0.3s;
     }
     nav a:hover { color: #f5c542; }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid #f5c542;
+      color: #f5c542;
+      padding: 8px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+    }
     .btn-primary {
       background: linear-gradient(135deg, #c58a2d, #efc467);
       color: white;
-      padding: 12px 26px;
+      padding: 12px 24px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
@@ -72,7 +92,7 @@
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.3rem;
+      font-size: 3.1rem;
       margin-bottom: 20px;
     }
     .hero p {
@@ -88,7 +108,7 @@
       flex-wrap: wrap;
     }
 
-    /* Value Proposition */
+    /* Value */
     .value {
       padding: 90px 8%;
       background: #0b1220;
@@ -96,7 +116,7 @@
     }
     .value h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       color: #f5c542;
       margin-bottom: 20px;
     }
@@ -115,7 +135,7 @@
     .services h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       color: #f5c542;
       margin-bottom: 50px;
     }
@@ -147,10 +167,11 @@
       padding: 90px 8%;
       background: #0b1220;
     }
-    .how h2 {
+    .
+    how h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       color: #f5c542;
       margin-bottom: 60px;
     }
@@ -198,7 +219,7 @@
     }
     .form-section h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       color: #f5c542;
       margin-bottom: 15px;
     }
@@ -261,7 +282,7 @@
     @media (max-width: 900px) {
       header { padding: 0 20px; }
       nav { display: none; }
-      .hero h1 { font-size: 2.3rem; }
+      .hero h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -272,152 +293,219 @@
     <div class="logo">
       <a href="index.html"><img src="images/logo.jpeg" alt="Rently Homes"></a>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stays.html">Stays</a>
-      <a href="property-management.html">Property Management</a>
-      <a href="#form" class="btn-primary">Free Analysis</a>
-    </nav>
+    <div class="header-right">
+      <nav>
+        <a href="index.html">
+          <span class="lang-es">Inicio</span>
+          <span class="lang-en">Home</span>
+        </a>
+        <a href="stays.html">
+          <span class="lang-es">Nuestras Casas</span>
+          <span class="lang-en">Our Homes</span>
+        </a>
+        <a href="property-management.html">Property Management</a>
+      </nav>
+      <button class="lang-btn" onclick="toggleLanguage()">ES / EN</button>
+      <a href="#form" class="btn-primary">
+        <span class="lang-es">Análisis Gratis</span>
+        <span class="lang-en">Free Analysis</span>
+      </a>
+    </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <h1>Your Property. Professionally Managed.</h1>
-    <p>We help Orlando and Kissimmee vacation-home owners increase revenue, improve guest experiences and protect their investment through hands-on short-term rental management.</p>
+    <h1 class="lang-es">Tu Propiedad. Gestionada Profesionalmente.</h1>
+    <h1 class="lang-en">Your Property. Professionally Managed.</h1>
+    <p class="lang-es">Ayudamos a los dueños de casas vacacionales en Orlando y Kissimmee a aumentar ingresos, mejorar la experiencia de los huéspedes y proteger su inversión.</p>
+    <p class="lang-en">We help Orlando and Kissimmee vacation-home owners increase revenue, improve guest experiences and protect their investment through hands-on short-term rental management.</p>
     <div class="hero-buttons">
-      <a href="#form" class="btn-primary" style="padding: 16px 36px; font-size: 17px;">Get a Free Property Analysis</a>
-      <a href="#form" class="btn-secondary" style="padding: 14px 32px; font-size: 17px;">Schedule a Consultation</a>
+      <a href="#form" class="btn-primary" style="padding: 16px 36px; font-size: 17px;">
+        <span class="lang-es">Solicitar Análisis Gratuito</span>
+      <span class="lang-en">Get a Free Property Analysis</span>
+      </a>
     </div>
   </section>
 
   <!-- Value Proposition -->
   <section class="value">
-    <h2>More Revenue. Less Stress.<br>Better Guest Experiences.</h2>
-    <p>Rently Homes manages the day-to-day operation of your vacation rental, from listing optimization and dynamic pricing to guest communication, cleaning coordination and property oversight.</p>
+    <h2 class="lang-es">Más Ingresos. Menos Estrés.<br>Mejores Experiencias.</h2>
+    <h2 class="lang-en">More Revenue. Less Stress.<br>Better Guest Experiences.</h2>
+    <p class="lang-es">Rently Homes se encarga de la operación diaria de tu renta vacacional: optimización de anuncios, precios dinámicos, comunicación con huéspedes, coordinación de limpiezas y supervisión de la propiedad.</p>
+    <p class="lang-en">Rently Homes manages the day-to-day operation of your vacation rental, from listing optimization and dynamic pricing to guest communication, cleaning coordination and property oversight.</p>
   </section>
 
   <!-- Services -->
   <section class="services">
-    <h2>What We Handle for You</h2>
+    <h2 class="lang-es">Qué Manejamos por Ti</h2>
+    <h2 class="lang-en">What We Handle for You</h2>
     <div class="services-grid">
       <div class="service-card">
-        <h3>Listing Optimization</h3>
-        <p>Professional descriptions, photos coordination and platform setup.</p>
+        <h3 class="lang-es">Optimización de Anuncios</h3>
+        <h3 class="lang-en">Listing Optimization</h3>
+        <p class="lang-es">Descripciones profesionales, coordinación de fotos y configuración en plataformas.</p>
+        <p class="lang-en">Professional descriptions, photos coordination and platform setup.</p>
       </div>
       <div class="service-card">
-        <h3>Dynamic Pricing</h3>
-        <p>Smart pricing strategy to maximize occupancy and revenue.</p>
+        <h3 class="lang-es">Precios Dinámicos</h3>
+        <h3 class="lang-en">Dynamic Pricing</h3>
+        <p class="lang-es">Estrategia de precios inteligente para maximizar ocupación e ingresos.</p>
+        <p class="lang-en">Smart pricing strategy to maximize occupancy and revenue.</p>
       </div>
       <div class="service-card">
-        <h3>Multi-Platform Management</h3>
-        <p>Airbnb, VRBO, Booking.com and direct bookings handled for you.</p>
+        <h3 class="lang-es">Gestión Multiplataforma</h3>
+        <h3 class="lang-en">Multi-Platform Management</h3>
+        <p class="lang-es">Airbnb, VRBO, Booking.com y reservas directas manejadas por nosotros.</p>
+        <p class="lang-en">Airbnb, VRBO, Booking.com and direct bookings handled for you.</p>
       </div>
       <div class="service-card">
-        <h3>Guest Communication</h3>
-        <p>24/7 messaging, screening and support before, during and after the stay.</p>
+        <h3 class="lang-es">Comunicación con Huéspedes</h3>
+        <h3 class="lang-en">Guest Communication</h3>
+        <p class="lang-es">Mensajería 24/7, filtrado y soporte antes, durante y después de la estancia.</p>
+        <p class="lang-en">24/7 messaging, screening and support before, during and after the stay.</p>
       </div>
       <div class="service-card">
-        <h3>Cleaning & Turnover</h3>
-        <p>Professional cleaning coordination to keep 5-star standards.</p>
+        <h3 class="lang-es">Limpieza y Turnover</h3>
+        <h3 class="lang-en">Cleaning & Turnover</h3>
+        <p class="lang-es">Coordinación de limpieza profesional para mantener estándares de 5 estrellas.</p>
+        <p class="lang-en">Professional cleaning coordination to keep 5-star standards.</p>
       </div>
       <div class="service-card">
-        <h3>Maintenance Coordination</h3>
-        <p>We handle issues quickly and keep your property in excellent condition.</p>
+        <h3 class="lang-es">Mantenimiento</h3>
+        <h3 class="lang-en">Maintenance Coordination</h3>
+        <p class="lang-es">Resolvemos problemas rápidamente y mantenemos tu propiedad en excelente estado.</p>
+        <p class="lang-en">We handle issues quickly and keep your property in excellent condition.</p>
       </div>
       <div class="service-card">
-        <h3>Review Management</h3>
-        <p>We monitor and respond to reviews to protect your reputation.</p>
+        <h3 class="lang-es">Gestión de Reseñas</h3>
+        <h3 class="lang-en">Review Management</h3>
+        <p class="lang-es">Monitoreamos y respondemos reseñas para proteger tu reputación.</p>
+        <p class="lang-en">We monitor and respond to reviews to protect your reputation.</p>
       </div>
       <div class="service-card">
-        <h3>Monthly Owner Reports</h3>
-        <p>Clear reports on performance, occupancy and revenue.</p>
+        <h3 class="lang-es">Reportes Mensuales</h3>
+        <h3 class="lang-en">Monthly Owner Reports</h3>
+        <p class="lang-es">Reportes claros sobre ocupación, ingresos y rendimiento.</p>
+        <p class="lang-en">Clear reports on performance, occupancy and revenue.</p>
       </div>
     </div>
   </section>
 
   <!-- How It Works -->
   <section class="how">
-    <h2>How It Works</h2>
+    <h2 class="lang-es">Cómo Funciona</h2>
+    <h2 class="lang-en">How It Works</h2>
     <div class="steps">
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Property Evaluation</h3>
-        <p>We analyze your property, location, competition and income potential.</p>
+        <h3 class="lang-es">Evaluación</h3>  
+        <h3 class="lang-en">Property Evaluation</h3>
+        <p class="lang-es">Analizamos tu propiedad, ubicación, competencia y potencial de ingresos.</p>
+        <p class="lang-en">We analyze your property, location, competition and income potential.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
-        <h3>Setup & Optimization</h3>
-        <p>Photos, listing, pricing strategy, rules and platform presence.</p>
+        <h3 class="lang-es">Configuración</h3>
+        <h3 class="lang-en">Setup & Optimization</h3>
+        <p class="lang-es">Fotos, anuncio, estrategia de precios, reglas y presencia en plataformas.</p>
+        <p class="lang-en">Photos, listing, pricing strategy, rules and platform presence.</p>
       </div>
       <div class="step">
         <div class="step-number">3</div>
-        <h3>Launch & Management</h3>
-        <p>We handle bookings, guests, cleanings and day-to-day operations.</p>
+        <h3 class="lang-es">Lanzamiento</h3>
+        <h3 class="lang-en">Launch & Management</h3>
+        <p class="lang-es">Manejamos reservas, huéspedes, limpiezas y operaciones diarias.</p>
+        <p class="lang-en">We handle bookings, guests, cleanings and day-to-day operations.</p>
       </div>
       <div class="step">
         <div class="step-number">4</div>
-        <h3>Reporting & Growth</h3>
-        <p>You receive reports and recommendations to improve performance.</p>
+        <h3 class="lang-es">Reportes y Crecimiento</h3>
+        <h3 class="lang-en">Reporting & Growth</h3>
+        <p class="lang-es">Recibes reportes y recomendaciones para mejorar el rendimiento.</p>
+        <p class="lang-en">You receive reports and recommendations to improve performance.</p>
       </div>
     </div>
   </section>
 
   <!-- Form -->
   <section class="form-section" id="form">
-    <h2>Request Your Free Property Analysis</h2>
-    <p>Tell us about your property and we’ll show you its potential.</p>
+    <h2 class="lang-es">Solicita tu Análisis Gratuito</h2>
+    <h2 class="lang-en">Request Your Free Property Analysis</h2>
+    <p class="lang-es">Cuéntanos sobre tu propiedad y te mostraremos su potencial.</p>
+    <p class="lang-en">Tell us about your property and we’ll show you its potential.</p>
 
     <form action="https://hook.us2.make.com/lmpceg5tmvtee6lvb32js7ngb3t36475" method="POST">
-      <label>Full Name *</label>
+      <label class="lang-es">Nombre Completo *</label>
+      <label class="lang-en">Full Name *</label>
       <input type="text" name="full_name" required>
 
-      <label>Email *</label>
+      <label class="lang-es">Email *</label>
+      <label class="lang-en">Email *</label>
       <input type="email" name="email" required>
 
-      <label>Phone Number</label>
+      <label class="lang-es">Teléfono</label>
+      <label class="lang-en">Phone Number</label>
       <input type="tel" name="phone">
 
-      <label>Property Address or ZIP Code *</label>
+      <label class="lang-es">Dirección o Código Postal de la Propiedad *</label>
+      <label class="lang-en">Property Address or ZIP Code *</label>
       <input type="text" name="property_location" required>
 
-      <label>Property Type</label>
+      <label class="lang-es">Tipo de Propiedad</label>
+      <label class="lang-en">Property Type</label>
       <select name="property_type">
         <option value="">Select...</option>
-        <option value="House">House</option>
+        <option value="House">House / Casa</option>
         <option value="Villa">Villa</option>
         <option value="Condo">Condo</option>
         <option value="Townhouse">Townhouse</option>
-        <option value="Other">Other</option>
+        <option value="Other">Other / Otro</option>
       </select>
 
-      <label>Number of Bedrooms</label>
+      <label class="lang-es">Número de Habitaciones</label>
+      <label class="lang-en">Number of Bedrooms</label>
       <input type="number" name="bedrooms" min="1">
 
-      <label>Is the property currently listed?</label>
+      <label class="lang-es">¿La propiedad está actualmente listada?</label>
+      <label class="lang-en">Is the property currently listed?</label>
       <select name="currently_listed">
         <option value="">Select...</option>
-        <option value="Yes">Yes</option>
+        <option value="Yes">Yes / Sí</option>
         <option value="No">No</option>
       </select>
 
-      <label>Current Booking Platforms (if any)</label>
+      <label class="lang-es">Plataformas actuales (si aplica)</label>
+      <label class="lang-en">Current Booking Platforms (if any)</label>
       <input type="text" name="platforms" placeholder="Airbnb, VRBO, etc.">
 
-      <label>Approximate Monthly Revenue (optional)</label>
+      <label class="lang-es">Ingreso mensual aproximado (opcional)</label>
+      <label class="lang-en">Approximate Monthly Revenue (optional)</label>
       <input type="text" name="monthly_revenue">
 
-      <label>Primary Management Concern</label>
+      <label class="lang-es">Principal preocupación de gestión</label>
+      <label class="lang-en">Primary Management Concern</label>
       <textarea name="main_concern" placeholder="What would you like us to help you with the most?"></textarea>
 
-      <button type="submit">Request My Free Property Analysis</button>
+      <button type="submit">
+        <span class="lang-es">Solicitar Mi Análisis Gratuito</span>
+        <span class="lang-en">Request My Free Property Analysis</span>
+      </button>
     </form>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>© 2026 Rently Homes LLC • Orlando, Florida</p>
-    <p style="margin-top: 8px;">Professional Short-Term Rental Management</p>
+    <p style="margin-top: 8px;">
+      <span class="lang-es">Gestión Profesional de Rentas a Corto Plazo</span>
+      <span class="lang-en">Professional Short-Term Rental Management</span>
+    </p>
   </footer>
 
+  <script>
+    function toggleLanguage() {
+      document.body.classList.toggle('en');
+    }
+  </script>
 </body>
 </html>
