@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Vacation Homes | Rently Homes Orlando</title>
+  <meta name="description" content="Luxury vacation homes near Disney World with private pools. Perfect for families and groups in Orlando and Kissimmee.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #030914;
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      height: 90px;
+      background: rgba(2, 8, 23, 0.95);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid #1d2a44;
+    }
+    .logo img { height: 70px; }
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #f5c542; }
+    .btn-primary {
+      background: linear-gradient(135deg, #c58a2d, #efc467);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 160px 8% 100px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.4rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #e5e7eb;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    /* Property Card */
+    .property-section {
+      padding: 80px 8%;
+      background: #0b1220;
+    }
+    .property-card {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #101a2d;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #23314e;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .property-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+    }
+    .property-info {
+      padding: 50px 40px;
+    }
+    .property-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #f5c542;
+      margin-bottom: 15px;
+    }
+    .property-info ul {
+      list-style: none;
+      margin: 25px 0 35px;
+    }
+    .property-info li {
+      margin-bottom: 10px;
+      color: #d1d5db;
+      font-size: 1.05rem;
+    }
+    .property-info li::before {
+      content: "• ";
+      color: #f5c542;
+      font-weight: bold;
+    }
+    .property-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* Features */
+    .features {
+      padding: 90px 8%;
+      background: #030914;
+    }
+    .features h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #f5c542;
+      margin-bottom: 50px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: #101a2d;
+      border: 1px solid #23314e;
+      border-radius: 18px;
+      padding: 35px 30px;
+      text-align: center;
+    }
+    .feature-card h3 {
+      color: #f5c542;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    .feature-card p {
+      color: #d1d5db;
+      font-size: 1rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 90px 8%;
+      background: #0b1220;
+      text-align: center;
+    }
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #f5c542;
+      margin-bottom: 20px;
+    }
+    .cta p {
+      color: #d1d5db;
+      margin-bottom: 35px;
+      font-size: 1.15rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #020817;
+      padding: 40px;
+      text-align: center;
+      color: #9ca3af;
+      border-top: 1px solid #1d2a44;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hero h1 { font-size: 2.4rem; }
+      .property-card { grid-template-columns: 1fr; }
+      .property-card img { min-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.jpeg" alt="Rently Homes"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stays.html">Our Homes</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#celebrations">Celebrations</a>
+      <a href="index.html#booking" class="btn-primary">Check Availability</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Your Orlando Vacation Starts Here</h1>
+    <p>Spacious vacation homes designed for families, groups and unforgettable stays near Orlando’s most popular attractions.</p>
+    <a href="#booking" class="btn-primary" style="padding: 16px 38px; font-size: 17px;">Check Availability</a>
+  </section>
+
+  <!-- Featured Property -->
+  <section class="property-section">
+    <div class="property-card">
+      <img src="images/pool-view.jpg" alt="Private Pool Family Retreat">
+      <div class="property-info">
+        <h2>Private Pool Family Retreat — Kissimmee</h2>
+        <ul>
+          <li>4 bedrooms</li>
+          <li>3 bathrooms</li>
+          <li>Sleeps up to 10 guests</li>
+          <li>Private pool</li>
+          <li>Full kitchen</li>
+          <li>Free parking</li>
+          <li>Optional pool heating</li>
+          <li>Near Walt Disney World</li>
+        </ul>
+        <div class="property-buttons">
+          <a href="#booking" class="btn-primary">Check Availability</a>
+          <a href="#booking" class="btn-primary" style="background: transparent; border: 2px solid #f5c542; color: #f5c542;">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities / Features -->
+  <section class="features" id="amenities">
+    <h2>Everything You Need for a Perfect Stay</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Private Pool</h3>
+        <p>Enjoy your own private pool. Optional heating available for cooler months.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Spacious Layout</h3>
+        <p>Multiple bedrooms and living areas designed for families and groups.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Full Kitchen</h3>
+        <p>Fully equipped kitchen so you can cook meals and save during your stay.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Prime Location</h3>
+        <p>Minutes from Walt Disney World and major Orlando attractions.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Smart Entertainment</h3>
+        <p>Smart TVs, high-speed WiFi and comfortable living spaces.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Celebrations Welcome</h3>
+        <p>Ideal for small family gatherings, birthdays and special moments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Celebrations -->
+  <section class="features" id="celebrations" style="background: #0b1220;">
+    <h2>Perfect for Celebrations</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Family Gatherings</h3>
+        <p>Spacious homes with outdoor areas perfect for family time.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Birthdays & Events</h3>
+        <p>Celebrate special moments in a private and comfortable setting.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Group Getaways</h3>
+        <p>Ideal for friends and extended family looking for a memorable stay.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Booking CTA -->
+  <section class="cta" id="booking">
+    <h2>Ready to Book Your Stay?</h2>
+    <p>Select your dates and reserve directly for the best available rate.</p>
+    
+    <!-- Lodgify Widget -->
+    <div style="max-width: 800px; margin: 40px auto; background: #101a2d; padding: 40px; border-radius: 20px; border: 1px solid #23314e;">
+      <style>
+        :root {
+          --ldg-bnb-background: #ffffff;
+          --ldg-bnb-border-radius: 0.42em;
+          --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+          --ldg-bnb-padding: 14px;
+          --ldg-bnb-input-background: #ffffff;
+          --ldg-bnb-button-border-radius: 3.58em;
+          --ldg-bnb-color-primary: #f5c542;
+          --ldg-bnb-color-primary-lighter: #fae2a1;
+          --ldg-bnb-color-primary-darker: #7b6321;
+          --ldg-bnb-color-primary-contrast: #333333;
+          --ldg-component-calendar-cell-selection-bg-color: #f5c542;
+          --ldg-component-calendar-cell-selection-color: #333333;
+          --ldg-component-calendar-cell-selected-bg-color: #fae2a1;
+          --ldg-component-calendar-cell-selected-color: #333333;
+          --ldg-bnb-font-family: inherit;
+        }
+        #lodgify-book-now-box { width: 100%; }
+      </style>
+
+      <div
+        id="lodgify-book-now-box"
+        data-rental-id="827496"
+        data-website-id="667233"
+        data-slug="rently-homes"
+        data-language-code="en"
+        data-new-tab="true"
+        data-version="stable"
+        data-currency-code="USD"
+        data-has-guests-breakdown
+        data-check-in-label="Check-in"
+        data-check-out-label="Check-out"
+        data-guests-label="Guests"
+        data-book-button-label="Book Now"
+      ></div>
+
+      <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Rently Homes LLC • Orlando, Florida</p>
+    <p style="margin-top: 8px;">Luxury Vacation Homes near Disney</p>
+  </footer>
+
+</body>
+</html>
