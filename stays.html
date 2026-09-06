@@ -362,68 +362,6 @@
     <p class="lang-en">Select your dates and reserve directly for the best available rate.</p>
     
    <div style="max-width: 800px; margin: 40px auto; background: #101a2d; padding: 40px 40px 64px; border-radius: 20px; border: 1px solid #23314e; overflow: visible; min-height: 360px; position: relative; z-index: 20;"> 
-<style>
-  :root {
-    --ldg-bnb-background: #ffffff;
-    --ldg-bnb-border-radius: 0.42em;
-    --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
-    --ldg-bnb-padding: 14px;
-    --ldg-bnb-input-background: #ffffff;
-    --ldg-bnb-button-border-radius: 3.58em;
-    --ldg-bnb-color-primary: #fac600;
-    --ldg-bnb-color-primary-lighter: #fde380;
-    --ldg-bnb-color-primary-darker: #7d6300;
-    --ldg-bnb-color-primary-contrast: #333333;
-    --ldg-component-calendar-cell-selection-bg-color: #fac600;
-    --ldg-component-calendar-cell-selection-color: #333333;
-    --ldg-component-calendar-cell-selected-bg-color: #fde380;
-    --ldg-component-calendar-cell-selected-color: #333333;
-    --ldg-bnb-font-family: inherit;
-  }
-  #lodgify-book-now-box {
-    width: 100%;
-  }
-</style>
-
-<div
-  id="lodgify-book-now-box"
-  data-rental-id="843613"
-  data-website-id="675078"
-  data-slug="eduardo-nucette"
-  data-language-code="es"
-  data-new-tab="true"
-  data-version="stable"
-  data-has-guests-breakdown
-  data-check-in-label="Llegada"
-  data-check-out-label="Salida"
-  data-guests-label="Huéspedes"
-  data-guests-singular-label="{{NumberOfGuests}} huésped"
-  data-guests-plural-label="{{NumberOfGuests}} huéspedes"
-  data-location-input-label="Ubicación"
-  data-total-price-label="Precio total:"
-  data-select-dates-to-see-price-label="Seleccione las fechas para ver el precio total"
-  data-minimum-price-per-night-first-label="Desde"
-  data-minimum-price-per-night-second-label="por noche"
-  data-book-button-label="Reservar ahora"
-  data-guests-breakdown-label="Huéspedes"
-  data-adults-label='{"one":"adulto","other":"adultos"}'
-  data-adults-description="Adultos · Edades 12 o mayores"
-  data-children-label='{"one":"niño","other":"niños"}'
-  data-children-description="Niños · Edades 5 - 12"
-  data-children-not-allowed-label="No adaptado para niños"
-  data-infants-label='{"one":"bebé","other":"bebés"}'
-  data-infants-description="Bebés · Menos de 5"
-  data-infants-not-allowed-label="No adaptado para bebés"
-  data-pets-label='{"one":"mascota","other":"mascotas"}'
-  data-pets-description="Mascotas"
-  data-pets-not-allowed-label="No permitido"
-  data-done-label="Hecho"
-></div>
-
-<script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
-</div>
-</section>
-
 <script>
 (function () {
   var box = document.getElementById('lodgify-book-now-box');
@@ -468,11 +406,7 @@
     }
   };
 
-  var ready = false;
-  window.addEventListener('load', function () { ready = true; });
-
   function apply(lang) {
-    if (!ready) return;
     var t = labels[lang] || labels.es;
     box.setAttribute('data-language-code', t.lang);
     box.setAttribute('data-guests-label', t.guests);
@@ -500,18 +434,23 @@
     document.body.appendChild(s);
   }
 
+  window.setLodgifyLang = apply;
+
   document.addEventListener('click', function (e) {
-    var b = e.target.closest('button, a, [role="button"]');
-    if (!b) return;
-    var txt = (b.textContent || '').replace(/\s+/g, ' ').trim().toUpperCase();
-    if (txt === 'EN' || (txt.indexOf('EN') !== -1 && txt.indexOf('ES') === -1)) apply('en');
-    if (txt === 'ES' || (txt.indexOf('ES') !== -1 && txt.indexOf('EN') === -1)) apply('es');
-    if (txt === 'ES / EN' || txt === 'ES/EN') {
-      apply(box.getAttribute('data-language-code') === 'en' ? 'es' : 'en');
-    }
-  });
+    var el = e.target;
+    if (!el) return;
+    var txt = ((el.innerText || el.textContent || '') + '').replace(/\s+/g, ' ').trim().toUpperCase();
+    var parentTxt = el.parentElement
+      ? (el.parentElement.innerText || '').replace(/\s+/g, ' ').trim().toUpperCase()
+      : '';
+    var hit = (txt === 'ES / EN' || txt === 'ES/EN' || parentTxt === 'ES / EN' || parentTxt === 'ES/EN');
+    if (!hit) return;
+    e.stopPropagation();
+    apply(box.getAttribute('data-language-code') === 'en' ? 'es' : 'en');
+  }, true);
 })();
 </script>
+ if (window.setLodgifyLang) window.setLodgifyLang(lang);    
 </div>
   </section>
 
