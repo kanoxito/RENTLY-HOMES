@@ -363,96 +363,69 @@
     
    <div style="max-width: 800px; margin: 40px auto; background: #101a2d; padding: 40px 40px 64px; border-radius: 20px; border: 1px solid #23314e; overflow: visible; min-height: 360px; position: relative; z-index: 20;"> 
 <script>
-(function () {
-  var box = document.getElementById('lodgify-book-now-box');
-  if (!box) return;
-
-  var labels = {
-    es: {
-      lang: 'es',
-      guests: 'Huéspedes',
-      guestOne: '{{NumberOfGuests}} huésped',
-      guestMany: '{{NumberOfGuests}} huéspedes',
-      adults: 'Adultos · Edades 12 o mayores',
-      children: 'Niños · Edades 5 - 12',
-      infants: 'Bebés · Menos de 5',
-      pets: 'Mascotas',
-      done: 'Hecho',
-      book: 'Reservar ahora',
-      price: 'Precio total:',
-      selectDates: 'Seleccione las fechas para ver el precio total',
-      from1: 'Desde',
-      from2: 'por noche',
-      checkin: 'Llegada',
-      checkout: 'Salida'
-    },
-    en: {
-      lang: 'en',
-      guests: 'Guests',
-      guestOne: '{{NumberOfGuests}} guest',
-      guestMany: '{{NumberOfGuests}} guests',
-      adults: 'Adults · Ages 12+',
-      children: 'Children · Ages 5 - 12',
-      infants: 'Infants · Under 5',
-      pets: 'Pets',
-      done: 'Done',
-      book: 'Book now',
-      price: 'Total price:',
-      selectDates: 'Select dates to see the total price',
-      from1: 'From',
-      from2: 'per night',
-      checkin: 'Check-in',
-      checkout: 'Check-out'
-    }
-  };
-
-  function apply(lang) {
-    var t = labels[lang] || labels.es;
-    box.setAttribute('data-language-code', t.lang);
-    box.setAttribute('data-guests-label', t.guests);
-    box.setAttribute('data-guests-singular-label', t.guestOne);
-    box.setAttribute('data-guests-plural-label', t.guestMany);
-    box.setAttribute('data-guests-breakdown-label', t.guests);
-    box.setAttribute('data-adults-description', t.adults);
-    box.setAttribute('data-children-description', t.children);
-    box.setAttribute('data-infants-description', t.infants);
-    box.setAttribute('data-pets-description', t.pets);
-    box.setAttribute('data-done-label', t.done);
-    box.setAttribute('data-book-button-label', t.book);
-    box.setAttribute('data-total-price-label', t.price);
-    box.setAttribute('data-select-dates-to-see-price-label', t.selectDates);
-    box.setAttribute('data-minimum-price-per-night-first-label', t.from1);
-    box.setAttribute('data-minimum-price-per-night-second-label', t.from2);
-    box.setAttribute('data-check-in-label', t.checkin);
-    box.setAttribute('data-check-out-label', t.checkout);
-
-    document.querySelectorAll('script[src*="renderBookNowBox"]').forEach(function (el) { el.remove(); });
-    box.innerHTML = '';
-    var s = document.createElement('script');
-    s.src = 'https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js';
-    s.defer = true;
-    document.body.appendChild(s);
+<style>
+  :root {
+    --ldg-bnb-background: #ffffff;
+    --ldg-bnb-border-radius: 0.42em;
+    --ldg-bnb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+    --ldg-bnb-padding: 14px;
+    --ldg-bnb-input-background: #ffffff;
+    --ldg-bnb-button-border-radius: 3.58em;
+    --ldg-bnb-color-primary: #fac600;
+    --ldg-bnb-color-primary-lighter: #fde380;
+    --ldg-bnb-color-primary-darker: #7d6300;
+    --ldg-bnb-color-primary-contrast: #333333;
+    --ldg-component-calendar-cell-selection-bg-color: #fac600;
+    --ldg-component-calendar-cell-selection-color: #333333;
+    --ldg-component-calendar-cell-selected-bg-color: #fde380;
+    --ldg-component-calendar-cell-selected-color: #333333;
+    --ldg-bnb-font-family: inherit;
   }
+  #lodgify-book-now-box {
+    width: 100%;
+    position: relative;
+    z-index: 50;
+  }
+</style>
 
-  window.setLodgifyLang = apply;
+<div
+  id="lodgify-book-now-box"
+  data-rental-id="843613"
+  data-website-id="675078"
+  data-slug="eduardo-nucette"
+  data-language-code="es"
+  data-new-tab="true"
+  data-version="stable"
+  data-has-guests-breakdown
+  data-check-in-label="Llegada"
+  data-check-out-label="Salida"
+  data-guests-label="Huéspedes"
+  data-guests-singular-label="{{NumberOfGuests}} huésped"
+  data-guests-plural-label="{{NumberOfGuests}} huéspedes"
+  data-location-input-label="Ubicación"
+  data-total-price-label="Precio total:"
+  data-select-dates-to-see-price-label="Seleccione las fechas para ver el precio total"
+  data-minimum-price-per-night-first-label="Desde"
+  data-minimum-price-per-night-second-label="por noche"
+  data-book-button-label="Reservar ahora"
+  data-guests-breakdown-label="Huéspedes"
+  data-adults-label='{"one":"adulto","other":"adultos"}'
+  data-adults-description="Adultos · Edades 12 o mayores"
+  data-children-label='{"one":"niño","other":"niños"}'
+  data-children-description="Niños · Edades 5 - 12"
+  data-children-not-allowed-label="No adaptado para niños"
+  data-infants-label='{"one":"bebé","other":"bebés"}'
+  data-infants-description="Bebés · Menos de 5"
+  data-infants-not-allowed-label="No adaptado para bebés"
+  data-pets-label='{"one":"mascota","other":"mascotas"}'
+  data-pets-description="Mascotas"
+  data-pets-not-allowed-label="No permitido"
+  data-done-label="Hecho"
+></div>
 
-  document.addEventListener('click', function (e) {
-    var el = e.target;
-    if (!el) return;
-    var txt = ((el.innerText || el.textContent || '') + '').replace(/\s+/g, ' ').trim().toUpperCase();
-    var parentTxt = el.parentElement
-      ? (el.parentElement.innerText || '').replace(/\s+/g, ' ').trim().toUpperCase()
-      : '';
-    var hit = (txt === 'ES / EN' || txt === 'ES/EN' || parentTxt === 'ES / EN' || parentTxt === 'ES/EN');
-    if (!hit) return;
-    e.stopPropagation();
-    apply(box.getAttribute('data-language-code') === 'en' ? 'es' : 'en');
-  }, true);
-})();
-</script>
- if (window.setLodgifyLang) window.setLodgifyLang(lang);    
+<script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
 </div>
-  </section>
+</section>
 
   <!-- Footer -->
   <footer>
