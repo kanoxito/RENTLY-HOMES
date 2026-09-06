@@ -508,7 +508,15 @@
     return 'es';
   }
 
-  document.addEventListener('click', function (e) {
+ 
+
+  apply(currentLang());
+})();
+</script>
+ <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
+</div>
+  </section>
+   document.addEventListener('click', function (e) {
     var b = e.target.closest('button, a, [role="button"]');
     if (!b) return;
     var txt = (b.textContent || '').trim().toUpperCase();
@@ -518,13 +526,6 @@
     if (txt === 'EN') apply('en');
     if (txt === 'ES') apply('es');
   });
-
-  apply(currentLang());
-})();
-</script>
- <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
-</div>
-  </section>
 
   <!-- Footer -->
   <footer>
