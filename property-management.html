@@ -447,6 +447,10 @@
       <label class="lang-en">Phone Number</label>
       <input type="tel" name="phone">
 
+      <label class="lang-es">WhatsApp (con código de país) *</label>
+      <label class="lang-en">WhatsApp (with country code) *</label>
+      <input type="tel" name="whatsapp" placeholder="+57 300 000 0000" required>
+      
       <label class="lang-es">Dirección o Código Postal de la Propiedad *</label>
       <label class="lang-en">Property Address or ZIP Code *</label>
       <input type="text" name="property_location" required>
@@ -485,6 +489,32 @@
       <label class="lang-es">Principal preocupación de gestión</label>
       <label class="lang-en">Primary Management Concern</label>
       <textarea name="main_concern" placeholder="What would you like us to help you with the most?"></textarea>
+
+      <label class="lang-es">País donde vives *</label>
+      <label class="lang-en">Country of residence *</label>
+      <select name="residence_country" required>
+      <option value="">Select...</option>
+      <option value="US">United States / Estados Unidos</option>
+      <option value="CO">Colombia</option>
+      <option value="VE">Venezuela</option>
+      <option value="MX">México</option>
+      <option value="AR">Argentina</option>
+      <option value="ES">España</option>
+      <option value="PE">Perú</option>
+      <option value="CL">Chile</option>
+      <option value="EC">Ecuador</option>
+      <option value="PA">Panamá</option>
+      <option value="OTHER">Other / Otro</option>
+    </select>
+      
+      <label class="lang-es">¿Necesitas contabilidad e impuestos en USA?</label>
+      <label class="lang-en">Do you need US bookkeeping and tax filing?</label>
+    <select name="need_taxes">
+      <option value="">Select...</option>
+      <option value="Yes">Yes / Sí</option>
+      <option value="No">No</option>
+      <option value="Not sure">Not sure / No sé</option>
+    </select>
 
       <button type="submit">
         <span class="lang-es">Solicitar Mi Análisis Gratuito</span>
