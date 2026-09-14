@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitud recibida | Rently Homes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#030914; --gold:#F5C542; --white:#fff; --muted:#c9cdd6; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { min-height:100vh; background:var(--bg); color:var(--white); font-family:Poppins,sans-serif; display:flex; flex-direction:column; }
+    .lang-es { display:block; }
+    .lang-en { display:none; }
+    body.en .lang-es { display:none; }
+    body.en .lang-en { display:block; }
+    header { background:#02060f; padding:18px 7%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(245,197,66,.12); }
+    .brand { font-family:"Playfair Display",serif; color:var(--gold); letter-spacing:.14em; font-size:13px; font-weight:600; text-decoration:none; }
+    header nav { display:flex; gap:16px; align-items:center; }
+    header nav a, header nav button {
+      color:var(--white); text-decoration:none; font-size:14px; font-weight:500;
+      background:transparent; border:1px solid var(--gold); color:var(--gold);
+      border-radius:999px; padding:7px 14px; cursor:pointer; font-family:Poppins,sans-serif;
+    }
+    header nav a.plain { border:none; color:#fff; padding:0; }
+    main { flex:1; display:flex; align-items:center; justify-content:center; padding:56px 20px 72px; }
+    .card { width:min(620px,100%); background:#07101f; border:1px solid rgba(245,197,66,.22); border-radius:18px; padding:52px 36px 44px; text-align:center; }
+    .check { width:62px; height:62px; margin:0 auto 22px; border-radius:50%; border:1.5px solid var(--gold); color:var(--gold); display:grid; place-items:center; font-size:26px; }
+    h1 { font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(30px,4.4vw,42px); color:var(--white); margin-bottom:12px; }
+    .gold { font-family:"Playfair Display",serif; color:var(--gold); font-size:20px; margin-bottom:16px; }
+    p { font-weight:400; font-size:15px; line-height:1.7; color:var(--muted); }
+    .actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+    .btn { display:inline-block; padding:12px 26px; border-radius:999px; text-decoration:none; font-family:Poppins,sans-serif; font-weight:600; font-size:14px; }
+    .btn-gold { background:var(--gold); color:#1a1406; }
+    .btn-line { border:1px solid var(--gold); color:var(--gold); }
+    footer { text-align:center; padding:22px 16px 28px; color:#8b90a0; font-size:12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="https://www.rentlyhomes.net/">RENTLY HOMES</a>
+    <nav>
+      <a class="plain" href="https://www.rentlyhomes.net/">
+        <span class="lang-es">Inicio</span>
+        <span class="lang-en">Home</span>
+      </a>
+      <button type="button" onclick="toggleLanguage()">ES / EN</button>
+    </nav>
+  </header>
+  <main>
+    <div class="card">
+      <div class="check">✓</div>
+      <h1 class="lang-es">Solicitud recibida</h1>
+      <h1 class="lang-en">Request received</h1>
+      <p class="gold lang-es">Gracias por confiar en Rently Homes.</p>
+      <p class="gold lang-en">Thank you for trusting Rently Homes.</p>
+      <p class="lang-es">Revisaremos los datos de tu propiedad y te contactaremos por WhatsApp o email en las próximas 24 horas con tu análisis gratuito.</p>
+      <p class="lang-en">We will review your property details and contact you by WhatsApp or email within 24 hours with your free analysis.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="https://www.rentlyhomes.net/property-management.html">
+          <span class="lang-es">Volver</span>
+          <span class="lang-en">Go back</span>
+        </a>
+        <a class="btn btn-line" href="https://www.rentlyhomes.net/">
+          <span class="lang-es">Inicio</span>
+          <span class="lang-en">Home</span>
+        </a>
+      </div>
+    </div>
+  </main>
+  <footer>© 2026 Rently Homes LLC • Orlando, Florida</footer>
+  <script>
+    function toggleLanguage() {
+      document.body.classList.toggle('en');
+    }
+  </script>
+</body>
+</html>
