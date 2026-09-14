@@ -434,7 +434,7 @@
     <p class="lang-es">Cuéntanos sobre tu propiedad y te mostraremos su potencial.</p>
     <p class="lang-en">Tell us about your property and we’ll show you its potential.</p>
 
-    <form action="https://hook.us2.make.com/lmpceg5tmvtee6lvb32js7ngb3t36475" method="POST">
+   <form id="lead-form" action="https://hook.us2.make.com/lmpceg5tmvtee6lvb32js7ngb3t36475" method="POST">
       <label class="lang-es">Nombre Completo *</label>
       <label class="lang-en">Full Name *</label>
       <input type="text" name="full_name" required>
@@ -536,6 +536,17 @@
     function toggleLanguage() {
       document.body.classList.toggle('en');
     }
+
+    document.getElementById("lead-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const data = new FormData(this);
+      try {
+        await fetch(this.action, { method: "POST", body: data });
+      } catch (err) {}
+      window.location.href = "gracias.html";
+    });
   </script>
+</body>
+</html>
 </body>
 </html>
