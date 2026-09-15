@@ -478,7 +478,7 @@
 
       <label class="lang-es">¿La propiedad está actualmente listada?</label>
       <label class="lang-en">Is the property currently listed?</label>
-      <select name="currently_listed">
+      <select name="currently_listed">    
         <option value="">Select...</option>
         <option value="Yes">Sí</option>
         <option value="No">No</option>
@@ -515,7 +515,7 @@
       
       <label class="lang-es">¿Necesitas contabilidad e impuestos en USA?</label>
       <label class="lang-en">Do you need US bookkeeping and tax filing?</label>
-    <select name="need_taxes">
+    <select name="need_taxes" id="need_taxes">
       <option value="">Select...</option>
       <option value="Yes">Sí</option>
       <option value="No">No</option>
@@ -548,7 +548,7 @@
     sel.options[1].text = en ? 'Yes' : 'Sí';
     sel.options[2].text = en ? 'No' : 'No';
     sel.options[3].text = en ? 'Not sure' : 'No sé';
-    sel.options[3].text = en ? 'Other' : 'Otro';
+    sel.options[4].text = en ? 'Other' : 'Otro';
   }
 }
 
