@@ -510,7 +510,7 @@
       <option value="CL">Chile</option>
       <option value="EC">Ecuador</option>
       <option value="PA">Panamá</option>
-      <option value="OTHER">Other / Otro</option>
+      <option value="OTHER">Otro</option>
     </select>
       
       <label class="lang-es">¿Necesitas contabilidad e impuestos en USA?</label>
@@ -540,8 +540,17 @@
 
   <script>
     function toggleLanguage() {
-      document.body.classList.toggle('en');
-    }
+  document.body.classList.toggle('en');
+  const en = document.body.classList.contains('en');
+  const sel = document.getElementById('need_taxes');
+  if (sel && sel.options.length >= 4) {
+    sel.options[0].text = en ? 'Select...' : 'Seleccionar...';
+    sel.options[1].text = en ? 'Yes' : 'Sí';
+    sel.options[2].text = en ? 'No' : 'No';
+    sel.options[3].text = en ? 'Not sure' : 'No sé';
+    sel.options[3].text = en ? 'Other' : 'Otro';
+  }
+}
 
     document.getElementById("lead-form").addEventListener("submit", async function (e) {
       e.preventDefault();
