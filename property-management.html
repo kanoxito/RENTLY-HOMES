@@ -485,15 +485,15 @@
 
       <label class="lang-es">Tipo de Propiedad</label>
       <label class="lang-en">Property Type</label>
-      <select name="property_type">
+      <select name="property_type" id="property_type">
         <option value="">Select...</option>
-        <option value="House">House / Casa</option>
+        <option value="House">Casa</option>
         <option value="Villa">Villa</option>
         <option value="Condo">Condo</option>
         <option value="Townhouse">Townhouse</option>
         <option value="Apartment">Apartamento</option>
-        <option value="Single Family">Single Family</option>
-        <option value="Other">Other / Otro</option>
+        <option value="Single Family">Casa unifamiliar</option>
+        <option value="Other">Otro</option>
       </select>
 
       <label class="lang-es">Numero de Habitaciones</label>
@@ -506,7 +506,7 @@
 
       <label class="lang-es">¿La propiedad está actualmente listada?</label>
       <label class="lang-en">Is the property currently listed?</label>
-      <select name="currently_listed">    
+      <select name="currently_listed" id="currently_listed">   
         <option value="">Select...</option>
         <option value="Yes">Sí</option>
         <option value="No">No</option>
@@ -526,8 +526,8 @@
 
       <label class="lang-es">País donde vives</label>
       <label class="lang-en">Country of residence</label>
-      <select name="residence_country" required>
-      <option value="">Select...</option>
+      <select name="residence_country" id="residence_country">
+      <option value="">Seleccionar...</option>
       <option value="US">United States / Estados Unidos</option>
       <option value="CO">Colombia</option>
       <option value="VE">Venezuela</option>
@@ -538,7 +538,7 @@
       <option value="CL">Chile</option>
       <option value="EC">Ecuador</option>
       <option value="PA">Panamá</option>
-      <option value="OTHER">Otro</option>
+      <option value="Other">Otro</option>
     </select>
       
       <label class="lang-es">¿Necesitas contabilidad e impuestos en USA?</label>
@@ -570,13 +570,44 @@
     function toggleLanguage() {
   document.body.classList.toggle('en');
   const en = document.body.classList.contains('en');
-  const sel = document.getElementById('need_taxes');
-  if (sel && sel.options.length >= 4) {
-    sel.options[0].text = en ? 'Select...' : 'Seleccionar...';
-    sel.options[1].text = en ? 'Yes' : 'Sí';
-    sel.options[2].text = en ? 'No' : 'No';
-    sel.options[3].text = en ? 'Not sure' : 'No sé';
-    sel.options[4].text = en ? 'Other' : 'Otro';
+
+  const type = document.getElementById('property_type');
+  if (type && type.options.length >= 8) {
+    type.options[0].text = en ? 'Select...' : 'Seleccionar...';
+    type.options[1].text = en ? 'House' : 'Casa';
+    type.options[2].text = en ? 'Villa' : 'Villa';
+    type.options[3].text = en ? 'Condo' : 'Condo';
+    type.options[4].text = en ? 'Townhouse' : 'Townhouse';
+    type.options[5].text = en ? 'Apartment' : 'Apartamento';
+    type.options[6].text = en ? 'Single family' : 'Casa unifamiliar';
+    type.options[7].text = en ? 'Other' : 'Otro';
+  }
+
+  const listed = document.getElementById('currently_listed');
+  if (listed && listed.options.length >= 3) {
+    listed.options[0].text = en ? 'Select...' : 'Seleccionar...';
+    listed.options[1].text = en ? 'Yes' : 'Sí';
+    listed.options[2].text = en ? 'No' : 'No';
+  }
+
+  const country = document.getElementById('residence_country');
+  if (country && country.options.length) {
+    country.options[0].text = en ? 'Select...' : 'Seleccionar...';
+  }
+
+  const taxes = document.getElementById('need_taxes');
+  if (taxes && taxes.options.length >= 4) {
+    taxes.options[0].text = en ? 'Select...' : 'Seleccionar...';
+    taxes.options[1].text = en ? 'Yes' : 'Sí';
+    taxes.options[2].text = en ? 'No' : 'No';
+    taxes.options[3].text = en ? 'Not sure' : 'No sé';
+  }
+
+  const notes = document.querySelector('textarea[name="main_concern"]');
+  if (notes) {
+    notes.placeholder = en
+      ? 'What would you like us to help you with the most?'
+      : '¿En qué quieres que te ayudemos?';
   }
 }
 
