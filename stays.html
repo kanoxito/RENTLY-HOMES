@@ -599,44 +599,58 @@
       <span class="lang-en">Luxury Vacation Homes near Disney</span>
     </p>
   </footer>
+  <div class="lightbox" id="lightbox">
+    <button class="x" type="button">×</button>
+    <img alt="">
+  </div>
   <script>
     function toggleLanguage() {
       document.body.classList.toggle('en');
     }
+    (function () {
+      var reel = document.getElementById('reel');
+      if (!reel) return;
+      var track = reel.querySelector('.reel-track');
+      var imgs = track.querySelectorAll('img');
+      var dots = reel.querySelector('.reel-dots');
+      var count = reel.querySelector('.reel-count');
+      var n = imgs.length, i = 0, startX = 0;
+      for (var d = 0; d < n; d++) {
+        var s = document.createElement('span');
+        if (d === 0) s.className = 'on';
+        s.dataset.i = d;
+        dots.appendChild(s);
+      }
+      function go(k) {
+        i = (k + n) % n;
+        track.style.transform = 'translateX(' + (-i * 100) + '%)';
+        dots.querySelectorAll('span').forEach(function (el, j) {
+          el.classList.toggle('on', j === i);
+        });
+        count.textContent = (i + 1) + ' / ' + n;
+      }
+      go(0);
+      reel.querySelector('.prev').onclick = function () { go(i - 1); };
+      reel.querySelector('.next').onclick = function () { go(i + 1); };
+      dots.onclick = function (e) {
+        if (e.target.dataset.i) go(+e.target.dataset.i);
+      };
+      track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (dx > 40) go(i - 1);
+        if (dx < -40) go(i + 1);
+      });
+      var box = document.getElementById('lightbox');
+      var boxImg = box.querySelector('img');
+      imgs.forEach(function (im) {
+        im.onclick = function () { boxImg.src = im.src; box.classList.add('on'); };
+      });
+      if (box) {
+        box.querySelector('.x').onclick = function () { box.classList.remove('on'); };
+        box.onclick = function (e) { if (e.target === box) box.classList.remove('on'); };
+      }
+    })();
   </script>
-    for (var d = 0; d < n; d++) {
-    var s = document.createElement('span');
-    if (d === 0) s.className = 'on';
-    s.dataset.i = d;
-    dots.appendChild(s);
-  }
-  function go(k) {
-    i = (k + n) % n;
-    track.style.transform = 'translateX(' + (-i * 100) + '%)';
-    dots.querySelectorAll('span').forEach(function (el, j) {
-      el.classList.toggle('on', j === i);
-    });
-    count.textContent = (i + 1) + ' / ' + n;
-  }
-  go(0);
-  reel.querySelector('.prev').onclick = function () { go(i - 1); };
-  reel.querySelector('.next').onclick = function () { go(i + 1); };
-  dots.onclick = function (e) {
-    if (e.target.dataset.i) go(+e.target.dataset.i);
-  };
-  track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', function (e) {
-    var dx = e.changedTouches[0].clientX - startX;
-    if (dx > 40) go(i - 1);
-    if (dx < -40) go(i + 1);
-  });
-  var box = document.getElementById('lightbox');
-  var boxImg = box.querySelector('img');
-  imgs.forEach(function (im) {
-    im.onclick = function () { boxImg.src = im.src; box.classList.add('on'); };
-  });
-  box.querySelector('.x').onclick = function () { box.classList.remove('on'); };
-  box.onclick = function (e) { if (e.target === box) box.classList.remove('on'); };
-})();
 </body>
 </html>
