@@ -261,7 +261,22 @@
   <!-- Featured Property -->
   <section class="property-section">
     <div class="property-card">
-      <img src="images/propiedad1.jpeg" alt="Private Pool Family Retreat">
+      <div class="reel" id="reel">
+    <div class="reel-track">
+      <img src="images/propiedad1.jpeg" alt="Piscina">
+      <img src="images/kissimmee-01.jpg" alt="Habitación">
+      <img src="images/kissimmee-02.jpg" alt="Habitación">
+      <img src="images/kissimmee-03.jpg" alt="Habitación">
+      <img src="images/kissimmee-04.jpg" alt="Habitación">
+      <img src="images/kissimmee-05.jpg" alt="Habitación">
+      <img src="images/kissimmee-06.jpg" alt="Habitación">
+      <img src="images/kissimmee-07.jpg" alt="Habitación">
+    </div>
+    <button class="reel-btn prev" type="button" aria-label="Anterior">‹</button>
+    <button class="reel-btn next" type="button" aria-label="Siguiente">›</button>
+    <div class="reel-dots"></div>
+    <div class="reel-count"></div>
+  </div>
       <div class="property-info">
         <h2 class="lang-es">Retiro Familiar con Piscina Privada — Kissimmee</h2>
         <h2 class="lang-en">Private Pool Family Retreat — Kissimmee</h2>
@@ -381,6 +396,95 @@
     --ldg-bnb-font-family: inherit;
   }
   #lodgify-book-now-box { width: 100%; position: relative; z-index: 50; }
+  .reel {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background: #0a1220;
+}
+.reel-track {
+  display: flex;
+  height: 100%;
+  min-height: 420px;
+  transition: transform 0.38s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+.reel-track img {
+  min-width: 100%;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.reel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  color: #f5c542;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+.reel-btn.prev { left: 12px; }
+.reel-btn.next { right: 12px; }
+.reel-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  z-index: 2;
+}
+.reel-dots span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.35);
+  cursor: pointer;
+}
+.reel-dots span.on { background: #f5c542; }
+.reel-count {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 2;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.on { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.lightbox .x {
+  position: absolute;
+  top: 18px; right: 22px;
+  color: #f5c542;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 </style>
 
 <div
@@ -495,11 +599,44 @@
       <span class="lang-en">Luxury Vacation Homes near Disney</span>
     </p>
   </footer>
-
   <script>
     function toggleLanguage() {
       document.body.classList.toggle('en');
     }
   </script>
+    for (var d = 0; d < n; d++) {
+    var s = document.createElement('span');
+    if (d === 0) s.className = 'on';
+    s.dataset.i = d;
+    dots.appendChild(s);
+  }
+  function go(k) {
+    i = (k + n) % n;
+    track.style.transform = 'translateX(' + (-i * 100) + '%)';
+    dots.querySelectorAll('span').forEach(function (el, j) {
+      el.classList.toggle('on', j === i);
+    });
+    count.textContent = (i + 1) + ' / ' + n;
+  }
+  go(0);
+  reel.querySelector('.prev').onclick = function () { go(i - 1); };
+  reel.querySelector('.next').onclick = function () { go(i + 1); };
+  dots.onclick = function (e) {
+    if (e.target.dataset.i) go(+e.target.dataset.i);
+  };
+  track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (dx > 40) go(i - 1);
+    if (dx < -40) go(i + 1);
+  });
+  var box = document.getElementById('lightbox');
+  var boxImg = box.querySelector('img');
+  imgs.forEach(function (im) {
+    im.onclick = function () { boxImg.src = im.src; box.classList.add('on'); };
+  });
+  box.querySelector('.x').onclick = function () { box.classList.remove('on'); };
+  box.onclick = function (e) { if (e.target === box) box.classList.remove('on'); };
+})();
 </body>
 </html>
